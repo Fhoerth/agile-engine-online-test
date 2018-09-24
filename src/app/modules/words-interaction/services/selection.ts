@@ -15,7 +15,7 @@ export class SelectionService {
   static getContainer(host: ElementRef, selectionContainer) {
     let { parentElement } = selectionContainer;
 
-    while (parentElement !== host.nativeElement) {
+    while ((parentElement && parentElement.parentElement) !== host.nativeElement) {
       parentElement = parentElement.parentElement;
     }
 
