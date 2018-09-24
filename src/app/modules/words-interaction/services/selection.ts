@@ -45,6 +45,7 @@ export class SelectionService {
         const wordContent = div.innerHTML;
         const word = new Word({
           content: wordContent,
+          range,
         });
 
         return word;
