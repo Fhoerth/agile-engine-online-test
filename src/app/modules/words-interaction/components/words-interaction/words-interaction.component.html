@@ -1,5 +1,5 @@
 <div class="words-interaction">
-  <app-control-panel></app-control-panel>
+  <app-control-panel [word]="selectedWord" (format)="onFormat($event)"></app-control-panel>
 
   <div class="words-interaction__content" (dblclick)="handleDblClick()" #content>
     <ng-content></ng-content>
