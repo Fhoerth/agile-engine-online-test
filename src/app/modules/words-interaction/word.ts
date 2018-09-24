@@ -22,6 +22,10 @@ export class Word {
     this.range = range;
   }
 
+  getPosition(): DOMRect {
+    return <DOMRect>this.range.getBoundingClientRect();
+  }
+
   getFormattedWord(): string {
     return this.formatService.format(this.formats, this.content);
   }

@@ -1,0 +1,11 @@
+<div
+  [ngClass]="{
+    'words-interaction__synonysms-tooltip': true,
+    'words-interaction__synonysms-tooltip--active': this.show
+  }"
+  [ngStyle]="getStyle()"
+>
+  <h3 class="words-interaction__synonysms-tooltip-title">
+    Top synonysms for "{{word.content}}"
+  </h3>
+</div>

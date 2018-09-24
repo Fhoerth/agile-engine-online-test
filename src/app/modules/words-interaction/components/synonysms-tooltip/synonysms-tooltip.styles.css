@@ -1,0 +1,22 @@
+.words-interaction__synonysms-tooltip {
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 320px;
+  z-index: 2000;
+
+  background: #dedede;
+  border-radius: 0.2em;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.words-interaction__synonysms-tooltip--active {
+  display: block;
+}
+
+.words-interaction__synonysms-tooltip-title {
+  margin: 0 0 0 0;
+  font-size: 1em;
+  padding: 0;
+}

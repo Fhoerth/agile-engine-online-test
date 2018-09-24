@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { ControlPanelComponent } from './components/control-panel';
 import { WordsInteractionComponent } from './components/words-interaction';
+import { SynonysmsTooltipComponent } from './components/synonysms-tooltip';
 
 import { DataMuseAPIService } from './services/data-muse-api';
 import { FormatService } from './services/format';
@@ -13,6 +14,7 @@ import { SelectionService } from './services/selection';
   declarations: [
     ControlPanelComponent,
     WordsInteractionComponent,
+    SynonysmsTooltipComponent,
   ],
   imports: [
     CommonModule,

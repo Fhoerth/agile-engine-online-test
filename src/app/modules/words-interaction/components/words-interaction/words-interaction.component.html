@@ -5,3 +5,7 @@
     <ng-content></ng-content>
   </div>
 </div>
+<app-synonysms-tooltip
+  *ngIf="selectedWord"
+  [word]="selectedWord"
+></app-synonysms-tooltip>
