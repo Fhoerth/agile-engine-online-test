@@ -26,4 +26,15 @@ export class FormatService {
 
     return new RegExp(`${openingTagRe.source}(.*?)${closingTagRe.source}`);
   }
+
+  applyFormat = (format: Format, word: string): string =>
+    `<${format.tag}>${word}</${format.tag}>`
+  format = (formatsToApply: Format|Format[], word: string): string => Array.isArray(formats)
+    ? (formatsToApply as Format[]).reduce((formattedWord, format) => this.applyFormat(format, formattedWord), word)
+    : this.applyFormat((formatsToApply as Format), word)
+
+  removeFormat = (format: Format, word: string): string =>
+    word.replace(format.openingTagRe, '').replace(format.closingTagRe, '')
+  clean = (word: string): string =>
+    this.formats.reduce((formattedWord, format) => this.removeFormat(format, formattedWord), word)
 }
