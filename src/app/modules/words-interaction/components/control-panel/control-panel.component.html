@@ -5,6 +5,7 @@
     type="button"
     [title]="format.title"
     [innerHtml]="format.label"
+    [class.active]="word && word.isFormatApplied(format)"
     (click)="applyFormat(format)"
   ></button>
 </div>

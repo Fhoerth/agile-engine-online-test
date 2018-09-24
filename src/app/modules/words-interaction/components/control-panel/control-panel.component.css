@@ -14,4 +14,14 @@
 
 button + button {
   margin-left: 5px;
+
+}
+
+button {
+  outline: none;
+  border: 1px solid #e6e6e6;
+}
+
+button.active {
+  background: #aaa;
 }
