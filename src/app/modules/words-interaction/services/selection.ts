@@ -37,7 +37,12 @@ export class SelectionService {
 
       // Make sure that the selected text, doesn't include "illegal" characters.
       if (!this.illegalCharactersRe.test(content)) {
-        return content;
+        const div = document.createElement('div');
+        div.appendChild(range.cloneContents());
+
+        const word = div.innerHTML;
+
+        return word;
       }
 
       return null;
