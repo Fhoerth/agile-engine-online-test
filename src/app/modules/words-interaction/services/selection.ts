@@ -5,6 +5,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class SelectionService {
+  illegalCharactersRe: RegExp = /[,.:\(\)\!\?\s]/;
+
   static getContainer(host: ElementRef, selectionContainer) {
     let { parentElement } = selectionContainer;
 
@@ -15,7 +17,7 @@ export class SelectionService {
     return parentElement;
   }
 
-  getSelectedWord(host: ElementRef) {
+  getSelectedWord(host: ElementRef): string|null {
     const selection: Selection = window.getSelection();
     const range: Range = selection.getRangeAt(0);
 
@@ -31,7 +33,14 @@ export class SelectionService {
         range.selectNode(wrapper);
       }
 
-      return range.toString();
+      const content = range.toString();
+
+      // Make sure that the selected text, doesn't include "illegal" characters.
+      if (!this.illegalCharactersRe.test(content)) {
+        return content;
+      }
+
+      return null;
     }
   }
 }
