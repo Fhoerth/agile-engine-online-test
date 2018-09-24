@@ -7,5 +7,18 @@
 >
   <h3 class="words-interaction__synonysms-tooltip-title">
     Top synonysms for "{{word.content}}"
+    <span *ngIf="word.fetchingSynonysms">Fetching synonysms...</span>
+    <ul *ngIf="word.fetchSynonysmsSuccess" class="words-interaction__synonysms">
+      <li *ngIf="!synonysms.length">Sorry. No synonysms were found for this word.</li>
+      <li *ngFor="let synonysm of synonysms">
+        <a
+          href="#"
+          title="Replace word with {{synonysm.word}}"
+          (click)="replaceWithSynonysm($event, synonysm)"
+        >
+          {{synonysm.word}} (score: {{synonysm.score}})
+        </a>
+      </li>
+    </ul>
   </h3>
 </div>

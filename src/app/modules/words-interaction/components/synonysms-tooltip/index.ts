@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnChanges, Input } from '@angular/core';
 
+import { Synonysm } from '../../interfaces/synonysm';
 import { Word } from '../../word';
 
 @Component({
@@ -7,11 +8,17 @@ import { Word } from '../../word';
   templateUrl: './synonysms-tooltip.template.html',
   styleUrls: ['./synonysms-tooltip.styles.css']
 })
-export class SynonysmsTooltipComponent implements OnInit {
+export class SynonysmsTooltipComponent implements OnChanges {
   @Input() word: Word;
   @Input() show = true;
+  synonysms: Synonysm[] = [];
 
-  ngOnInit() {
+  ngOnChanges() {
+    this.word
+      .fetchSynonyms()
+      .subscribe((synonysms: Synonysm[]) => {
+        this.synonysms = synonysms;
+      });
   }
 
   getStyle() {
@@ -21,5 +28,12 @@ export class SynonysmsTooltipComponent implements OnInit {
       top: `${position.y}px`,
       left: `${position.x}px`,
     };
+  }
+
+  replaceWithSynonysm(event, synonysm: Synonysm) {
+    event.preventDefault();
+
+    this.word.replaceContent(synonysm.word);
+    this.word.replaceNode();
   }
 }

@@ -2,6 +2,7 @@ import { ElementRef } from '@angular/core';
 import { Injectable } from '@angular/core';
 
 import { FormatService } from './format';
+import { DataMuseAPIService } from './data-muse-api';
 import { Word } from '../word';
 
 @Injectable({
@@ -10,7 +11,10 @@ import { Word } from '../word';
 export class SelectionService {
   illegalCharactersRe: RegExp = /[,.:\(\)\!\?\s]/;
 
-  constructor(private formatService: FormatService) { }
+  constructor(
+    private formatService: FormatService,
+    private dataMuseAPIService: DataMuseAPIService,
+  ) { }
 
   static getContainer(host: ElementRef, selectionContainer) {
     let { parentElement } = selectionContainer;
@@ -50,6 +54,7 @@ export class SelectionService {
           range,
           content: wordContent,
           formatService: this.formatService,
+          dataMuseAPIService: this.dataMuseAPIService,
         });
 
         return word;
