@@ -15,21 +15,21 @@ import { SelectionService } from '../../services/selection';
   styleUrls: ['./words-interaction.component.css'],
 })
 export class WordsInteractionComponent implements OnInit {
-  selectedWord: Word;
+  selectedWord: Word|null;
   @ViewChild('content') content: ElementRef;
 
   constructor(private selectionService: SelectionService) {
   }
 
   handleDblClick() {
-    const selectedWord = this.selectionService.getSelectedWord(this.content);
-
-    if (selectedWord) {
-      this.selectedWord = selectedWord;
-    }
+    this.selectedWord = this.selectionService.getSelectedWord(this.content);
   }
 
   onFormat(format: Format) {
+    if (this.selectedWord) {
+      this.selectedWord.toggleFormat(format);
+      this.selectedWord.replaceNode();
+    }
   }
 
   ngOnInit() {
