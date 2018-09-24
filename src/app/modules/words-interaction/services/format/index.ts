@@ -37,4 +37,12 @@ export class FormatService {
     word.replace(format.openingTagRe, '').replace(format.closingTagRe, '')
   clean = (word: string): string =>
     this.formats.reduce((formattedWord, format) => this.removeFormat(format, formattedWord), word)
+
+
+  isFormatApplied = (format: Format, word: string): boolean => format.tagRe.test(word);
+  /**
+   * retrieves a list of formats applied to a word
+   */
+  retrieveAppliedFormats = (word: string) =>
+    this.formats.filter(format => this.isFormatApplied(format, word))
 }
