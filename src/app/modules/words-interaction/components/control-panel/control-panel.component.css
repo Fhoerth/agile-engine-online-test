@@ -1,10 +1,10 @@
 :host {
-  background-color: #fff;
+  background-color: #fafafa;
   height: 25px;
   display: flex;
-  align-items: center;
+  align-items: left;
   flex-direction: column;
-  padding-top: 5px;
+  padding: 5px 20px 0 5px;
 }
 
 .format-actions {

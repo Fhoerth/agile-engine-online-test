@@ -1,0 +1,10 @@
+.words-interaction {
+  max-width: 960px;
+  margin: 0 auto;
+  background: #eee;
+}
+
+.words-interaction__content {
+  padding: 5px;
+  background: #fefefe;
+}
