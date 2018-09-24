@@ -1,10 +1,11 @@
 <div
   [ngClass]="{
     'words-interaction__synonysms-tooltip': true,
-    'words-interaction__synonysms-tooltip--active': this.show
+    'words-interaction__synonysms-tooltip--active': !this.dismissed
   }"
   [ngStyle]="getStyle()"
 >
+  <a href="#" class="words-interaction__synonysms-tooltip-close" (click)="dismiss()">&times;</a>
   <h3 class="words-interaction__synonysms-tooltip-title">
     Top synonysms for "{{word.content}}"
     <span *ngIf="word.fetchingSynonysms">Fetching synonysms...</span>

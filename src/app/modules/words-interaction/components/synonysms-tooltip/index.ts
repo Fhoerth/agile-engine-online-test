@@ -10,10 +10,11 @@ import { Word } from '../../word';
 })
 export class SynonysmsTooltipComponent implements OnChanges {
   @Input() word: Word;
-  @Input() show = true;
+  dismissed = true;
   synonysms: Synonysm[] = [];
 
   ngOnChanges() {
+    this.dismissed = false;
     this.word
       .fetchSynonyms()
       .subscribe((synonysms: Synonysm[]) => {
@@ -35,5 +36,9 @@ export class SynonysmsTooltipComponent implements OnChanges {
 
     this.word.replaceContent(synonysm.word);
     this.word.replaceNode();
+  }
+
+  dismiss() {
+    this.dismissed = true;
   }
 }
