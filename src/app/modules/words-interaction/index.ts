@@ -5,6 +5,7 @@ import { ControlPanelComponent } from './components/control-panel';
 import { WordsInteractionComponent } from './components/words-interaction';
 
 import { DataMuseAPIService } from './services/data-muse-api';
+import { FormatService } from './services/format';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { DataMuseAPIService } from './services/data-muse-api';
   ],
   providers: [
     DataMuseAPIService,
+    FormatService,
   ],
 })
 export class WordsinteractionModule { }
