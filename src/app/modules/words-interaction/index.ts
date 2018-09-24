@@ -24,6 +24,7 @@ import { SelectionService } from './services/selection';
   providers: [
     DataMuseAPIService,
     FormatService,
+    SelectionService,
   ],
 })
 export class WordsinteractionModule { }
