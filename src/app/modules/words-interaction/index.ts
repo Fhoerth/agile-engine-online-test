@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
 import { ControlPanelComponent } from './components/control-panel';
@@ -13,6 +14,7 @@ import { FormatService } from './services/format';
     WordsInteractionComponent,
   ],
   imports: [
+    CommonModule,
     HttpClientModule,
   ],
   exports: [
