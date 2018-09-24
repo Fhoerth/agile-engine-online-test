@@ -1,6 +1,12 @@
+interface IOptions {
+  content: string;
+}
+
 export class Word {
   content: String;
 
-  constructor() {}
+  constructor(options: IOptions) {
+
+  }
   fetchSynonysms() {}
 }

@@ -1,6 +1,8 @@
 import { ElementRef } from '@angular/core';
 import { Injectable } from '@angular/core';
 
+import { Word } from '../word';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -17,7 +19,7 @@ export class SelectionService {
     return parentElement;
   }
 
-  getSelectedWord(host: ElementRef): string|null {
+  getSelectedWord(host: ElementRef): Word|null {
     const selection: Selection = window.getSelection();
     const range: Range = selection.getRangeAt(0);
 
@@ -40,7 +42,10 @@ export class SelectionService {
         const div = document.createElement('div');
         div.appendChild(range.cloneContents());
 
-        const word = div.innerHTML;
+        const wordContent = div.innerHTML;
+        const word = new Word({
+          content: wordContent,
+        });
 
         return word;
       }
