@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ElementRef,
+  ViewChild,
+} from '@angular/core';
+
+import { SelectionService } from '../../services/selection';
 
 @Component({
   selector: 'app-words-interaction',
@@ -6,7 +13,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./words-interaction.component.css'],
 })
 export class WordsInteractionComponent implements OnInit {
-  constructor() {
+  @ViewChild('content') content: ElementRef;
+
+  constructor(private selectionService: SelectionService) {
+  }
+
+  handleDblClick() {
+    console.log(this.selectionService.getSelectedWord(this.content));
   }
 
   ngOnInit() {

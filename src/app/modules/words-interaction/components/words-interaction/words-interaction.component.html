@@ -1,7 +1,7 @@
 <div class="words-interaction">
   <app-control-panel></app-control-panel>
 
-  <div class="words-interaction__content">
+  <div class="words-interaction__content" (dblclick)="handleDblClick()" #content>
     <ng-content></ng-content>
   </div>
 </div>

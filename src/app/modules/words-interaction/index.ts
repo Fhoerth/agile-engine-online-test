@@ -7,6 +7,7 @@ import { WordsInteractionComponent } from './components/words-interaction';
 
 import { DataMuseAPIService } from './services/data-muse-api';
 import { FormatService } from './services/format';
+import { SelectionService } from './services/selection';
 
 @NgModule({
   declarations: [
