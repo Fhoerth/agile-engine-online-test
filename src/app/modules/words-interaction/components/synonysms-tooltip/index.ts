@@ -36,6 +36,7 @@ export class SynonysmsTooltipComponent implements OnChanges {
 
     this.word.replaceContent(synonysm.word);
     this.word.replaceNode();
+    this.dismissed = true;
   }
 
   dismiss() {
