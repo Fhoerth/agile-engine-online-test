@@ -1,6 +1,7 @@
 import { ElementRef } from '@angular/core';
 import { Injectable } from '@angular/core';
 
+import { FormatService } from './format';
 import { Word } from '../word';
 
 @Injectable({
@@ -8,6 +9,8 @@ import { Word } from '../word';
 })
 export class SelectionService {
   illegalCharactersRe: RegExp = /[,.:\(\)\!\?\s]/;
+
+  constructor(private formatService: FormatService) { }
 
   static getContainer(host: ElementRef, selectionContainer) {
     let { parentElement } = selectionContainer;
@@ -44,8 +47,9 @@ export class SelectionService {
 
         const wordContent = div.innerHTML;
         const word = new Word({
-          content: wordContent,
           range,
+          content: wordContent,
+          formatService: this.formatService,
         });
 
         return word;
