@@ -17,6 +17,6 @@ The module `words-interaction` uses `window.getSelection()` API. Some browsers d
 Please, refer to https://caniuse.com/#feat=selection-api for more info.
 
 ## Due to lack of time
-- The services `data-muse-api` doesn't handle errors (connection errors, timeout errors, 5XX response codes, etc), due to lack of time.
+- The service `data-muse-api` doesn't handle errors (connection errors, timeout errors, 5XX response codes, etc).
 - A production server isn't included.
 - The features of `word-selection` module aren't unit tested.
