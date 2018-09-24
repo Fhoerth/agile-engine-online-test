@@ -12,6 +12,6 @@ The build artifacts will be stored in the `dist/` directory. Use the `--prod` fl
 ## Production Server
 This feature isn't included due to lack of time.
 
-##
+## Notes
 The module `words-interaction` uses `window.getSelection()` API. Some browsers doesn't support this feature.
 Please, refer to https://caniuse.com/#feat=selection-api for more info.
